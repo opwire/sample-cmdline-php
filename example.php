@@ -1,11 +1,11 @@
 <?php
 $store = array();
 
-foreach (array("OPWIRE_REQUEST", "OPWIRE_FEATAGS", "OPWIRE_SETTING") as $envKey) {
-  if (array_key_exists($envKey, $_SERVER)) {
-    $data = $_SERVER[$envKey];
+foreach (array("OPWIRE_REQUEST", "OPWIRE_FEATAGS", "OPWIRE_SETTING") as $envName) {
+  if (array_key_exists($envName, $_SERVER)) {
+    $data = $_SERVER[$envName];
     if (is_string($data) && strlen($data) > 0) {
-      $store[$envKey] = json_decode($data, true);
+      $store[$envName] = json_decode($data, true);
     }
   }
 }
