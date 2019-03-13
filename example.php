@@ -1,5 +1,16 @@
 <?php
 
+// import environment varialbes & input data
+$store = bootstrap();
+
+// body of program: processing something here
+// .....
+
+// supposes the store is output...
+echo json_encode($store, JSON_PRETTY_PRINT);
+
+// -------------------------------------------------------- local functions
+
 function bootstrap() {
   $store = array();
 
@@ -47,7 +58,4 @@ function bootstrap() {
 
   return $store;
 }
-
-$store = bootstrap();
-echo json_encode($store, JSON_PRETTY_PRINT);
 ?>
