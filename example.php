@@ -1,7 +1,12 @@
 <?php
 
 // import environment varialbes & input data
-$store = bootstrap();
+$map = bootstrap();
+if ($map["error"] != null) {
+  fwrite(STDERR, $map["error"]);
+  exit(1);
+}
+$store = $map["store"];
 
 // body of program: processing something here
 // .....
@@ -31,31 +36,32 @@ function bootstrap() {
   if (is_string($input) && strlen($input) > 0) {
     $store["input"] = $input;
     $inputJSON = json_decode($input, true);
+    $error = null;
     switch (json_last_error()) {
       case JSON_ERROR_NONE:
         $store["input"] = $inputJSON;
       break;
       case JSON_ERROR_DEPTH:
-        fwrite(STDERR, "Maximum stack depth exceeded\n");
+        $error = "Maximum stack depth exceeded";
       break;
       case JSON_ERROR_STATE_MISMATCH:
-        fwrite(STDERR, "Underflow or the modes mismatch\n");
+        $error = "Underflow or the modes mismatch";
       break;
       case JSON_ERROR_CTRL_CHAR:
-        fwrite(STDERR, "Unexpected control character found\n");
+        $error = "Unexpected control character found";
       break;
       case JSON_ERROR_SYNTAX:
-        fwrite(STDERR, "Syntax error, malformed JSON\n");
+        $error = "Syntax error, malformed JSON";
       break;
       case JSON_ERROR_UTF8:
-        fwrite(STDERR, "Malformed UTF-8 characters\n");
+        $error = "Malformed UTF-8 characters";
       break;
       default:
-        fwrite(STDERR, "Unknown error\n");
+        $error = "Unknown error";
       break;
     }
   }
 
-  return $store;
+  return array("error" => $error, "store" => $store);
 }
 ?>
