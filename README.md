@@ -18,7 +18,7 @@ Download latest `opwire-agent` to here:
 
 ![project-home-dir](https://raw.github.com/opwire/sample-cmdline-php/master/docs/assets/images/ls.png)
 
-## Run
+## Test the service using a web browser
 
 Execute the following command:
 
@@ -26,13 +26,7 @@ Execute the following command:
 ./opwire-agent -p=8888 --default-command="php example.php"
 ```
 
-Make a simple REST request:
-
-```curl
-curl "http://localhost:8888/run?type=microservice&type=php"
-```
-
-or open with a web browser:
+Open the URL `http://localhost:8888/run?type=microservice&type=php`:
 
 ![example-output](https://raw.github.com/opwire/sample-cmdline-php/master/docs/assets/images/example.png)
 
