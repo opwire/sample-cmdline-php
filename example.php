@@ -1,6 +1,6 @@
 <?php
 
-include("./bootstrap.php");
+include(dirname(__FILE__) . "/bootstrap.php");
 
 $args = extractArgs();
 
