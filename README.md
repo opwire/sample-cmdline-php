@@ -14,7 +14,7 @@ Change the project home to current working directory:
 cd sample-cmdline-php
 ```
 
-Download latest `opwire-agent` to here:
+Download and extract the latest [`opwire-agent`](https://github.com/opwire/opwire-agent/releases/latest) program into this directory:
 
 ![project-home-dir](https://raw.github.com/opwire/sample-cmdline-php/master/docs/assets/images/ls.png)
 
