@@ -19,7 +19,7 @@ function bootstrap($args) {
 
   if (is_string($input) && strlen($input) > 0) {
     $store["input"] = $input;
-    if (isFormatType($args, "input-format", "json")) {
+    if (array_key_exists("input-format", $args) && $args["input-format"] == "json") {
       $inputJSON = json_decode($input, true);
       $error = null;
       switch (json_last_error()) {
