@@ -3,7 +3,7 @@
 function bootstrap($args) {
   $store = array();
 
-  foreach (array("OPWIRE_REQUEST", "OPWIRE_SETTING") as $envName) {
+  foreach (array("OPWIRE_EDITION", "OPWIRE_REQUEST", "OPWIRE_SETTING") as $envName) {
     if (array_key_exists($envName, $_SERVER)) {
       $data = $_SERVER[$envName];
       if (is_string($data) && strlen($data) > 0) {
