@@ -1,5 +1,12 @@
 <?php
 
+error_reporting(E_ERROR | E_PARSE);
+
+if (!defined('PHP_MAJOR_VERSION')) {
+  $version = explode('.', PHP_VERSION);
+  define('PHP_MAJOR_VERSION',   $version[0]);
+}
+
 function isFormatType($args, $format, $type) {
   return array_key_exists($format, $args) && $args[$format] == $type;
 }
@@ -33,10 +40,18 @@ function parseArgs(&$default_args = null) {
   }
   $_ARG = array();
   foreach ($argv as $arg) {
-    if (ereg('--([^=]+)=(.*)',$arg,$reg)) {
-      $_ARG[$reg[1]] = $reg[2];
-    } elseif(ereg('-([a-zA-Z0-9])',$arg,$reg)) {
-      $_ARG[$reg[1]] = 'true';
+    if (PHP_MAJOR_VERSION == 5) {
+      if (ereg('--([^=]+)=(.*)',$arg,$reg)) {
+        $_ARG[$reg[1]] = $reg[2];
+      } elseif(ereg('-([a-zA-Z0-9])',$arg,$reg)) {
+        $_ARG[$reg[1]] = 'true';
+      }
+    } else {
+      if (preg_match('--([^=]+)=(.*)',$arg,$reg)) {
+        $_ARG[$reg[1]] = $reg[2];
+      } elseif(preg_match('-([a-zA-Z0-9])',$arg,$reg)) {
+        $_ARG[$reg[1]] = 'true';
+      }
     }
   }
   return $_ARG;
