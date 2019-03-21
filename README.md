@@ -1,8 +1,28 @@
 # opwire-agent: sample command line in PHP
 
+<!-- TOC -->
+
+- [Install](#install)
+  - [Checkout source code](#checkout-source-code)
+  - [Download `opwire-agent`](#download-opwire-agent)
+- [Call the service from browsers](#call-the-service-from-browsers)
+- [Test the service with `curl`](#test-the-service-with-curl)
+  - [Default input/output format (`json`)](#default-inputoutput-format-json)
+    - [Valid input (a JSON object)](#valid-input-a-json-object)
+    - [Invalid input (not a JSON object)](#invalid-input-not-a-json-object)
+  - [JSON input, plaintext output](#json-input-plaintext-output)
+    - [Valid input (a JSON object)](#valid-input-a-json-object-1)
+    - [Invalid input (not a JSON object)](#invalid-input-not-a-json-object-1)
+- [Contributing](#contributing)
+- [License](#license)
+
+<!-- /TOC -->
+
 ## Install
 
-Clone example source code from github:
+### Checkout source code
+
+Clone example source code from github repository:
 
 ```shell
 git clone https://github.com/opwire/sample-cmdline-php.git
@@ -14,11 +34,22 @@ Change the project home to current working directory:
 cd sample-cmdline-php
 ```
 
-Download and extract the latest [`opwire-agent`](https://github.com/opwire/opwire-agent/releases/latest) program into this directory:
+### Download `opwire-agent`
+
+To download the latest `opwire-agent` on Linux/macOS/BSD systems, run:
+
+```shell
+curl https://opwire.org/opwire-agent/install.sh | bash
+```
+
+For other systems:
+
+* Download the relevant [`opwire-agent`](https://github.com/opwire/opwire-agent/releases/latest) release,
+* Extract the `opwire-agent` or `opwire-agent.exe` binary from the archive to example folder (current directory).
 
 ![project-home-dir](https://raw.github.com/opwire/sample-cmdline-php/master/docs/assets/images/ls.png)
 
-## Test the service using a web browser
+## Call the service from browsers
 
 Execute the following command:
 
@@ -30,7 +61,7 @@ Open the URL `http://localhost:8888/run?type=microservice&type=php`:
 
 ![example-output](https://raw.github.com/opwire/sample-cmdline-php/master/docs/assets/images/example.png)
 
-## Test the service using `curl`
+## Test the service with `curl`
 
 ### Default input/output format (`json`)
 
