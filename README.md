@@ -2,7 +2,7 @@
 
 <!-- TOC -->
 
-- [Install](#install)
+- [Installation](#installation)
   - [Checkout source code](#checkout-source-code)
   - [Download `opwire-agent`](#download-opwire-agent)
 - [Call the service from browsers](#call-the-service-from-browsers)
@@ -18,7 +18,7 @@
 
 <!-- /TOC -->
 
-## Install
+## Installation
 
 ### Checkout source code
 
