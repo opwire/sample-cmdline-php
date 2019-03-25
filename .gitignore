@@ -1,4 +1,6 @@
 opwire-agent
 opwire-agent-*
 opwire-agent.exe
+/log
+/vendor
 /tmp

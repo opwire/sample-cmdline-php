@@ -2,12 +2,20 @@
 
 include(dirname(__FILE__) . "/bootstrap.php");
 include(dirname(__FILE__) . "/cmdargs.php");
+require dirname(__FILE__ ). '/vendor/autoload.php';
+
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+
+$log = new Logger('sample-cmdline-php');
+$log->pushHandler(new StreamHandler(dirname(__FILE__ ) . '/log/access.log', Logger::DEBUG));
 
 $args = extractArgs();
 
 try {
   // import environment varialbes & input data
   $store = bootstrap($args);
+  $log->debug('arguments & environment variables have been loaded successfully');
 
   // body of program: processing something here
   // .....
