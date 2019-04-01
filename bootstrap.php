@@ -3,11 +3,20 @@
 function bootstrap($args) {
   $store = array();
 
-  foreach (array("OPWIRE_EDITION", "OPWIRE_REQUEST", "OPWIRE_SETTING") as $envName) {
+  foreach (array("OPWIRE_EDITION", "OPWIRE_REQUEST", "OPWIRE_SETTINGS") as $envName) {
     if (array_key_exists($envName, $_SERVER)) {
       $data = $_SERVER[$envName];
       if (is_string($data) && strlen($data) > 0) {
         $store[$envName] = json_decode($data, true);
+      }
+    }
+  }
+
+  $settings_key = "OPWIRE_SETTINGS_";
+  foreach ($_SERVER as $envName => $data) {
+    if (substr($envName, 0, strlen($settings_key)) === $settings_key) {
+      if (is_string($data) && strlen($data) > 0) {
+        $store[$envName] = $data;
       }
     }
   }
