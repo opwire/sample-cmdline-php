@@ -51,10 +51,10 @@ For other systems:
 
 ## Call the service from browsers
 
-Execute the following command:
+Execute the following command (with configuration file `./opwire-agent.cfg`):
 
 ```shell
-./opwire-agent -p=8888 --default-command="php example.php"
+./opwire-agent
 ```
 
 Open the URL `http://localhost:8888/run?type=microservice&type=php`:
