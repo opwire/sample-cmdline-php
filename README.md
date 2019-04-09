@@ -54,10 +54,10 @@ For other systems:
 Execute the following command (with configuration file `./opwire-agent.cfg`):
 
 ```shell
-./opwire-agent
+./opwire-agent serve
 ```
 
-Open the URL `http://localhost:8888/run?type=microservice&type=php`:
+Open the URL `http://localhost:8888/$?type=microservice&type=php`:
 
 ![example-output](https://raw.github.com/opwire/sample-cmdline-php/master/docs/assets/images/example.png)
 
@@ -68,19 +68,19 @@ Open the URL `http://localhost:8888/run?type=microservice&type=php`:
 Execute the following command:
 
 ```shell
-./opwire-agent -p=8888 --default-command="php example.php"
+./opwire-agent serve -p=8888 --default-command="php example.php"
 ```
 
 > Notice: above command is similar to
 > 
 > ```shell
-> ./opwire-agent -p=8888 --default-command="php example.php --format=json"
+> ./opwire-agent serve -p=8888 --default-command="php example.php --format=json"
 > ```
 > 
 > or
 > 
 > ```shell
-> ./opwire-agent -p=8888 --default-command="php example.php --input-format=json --output-format=json"
+> ./opwire-agent serve -p=8888 --default-command="php example.php --input-format=json --output-format=json"
 > ```
 
 #### Valid input (a JSON object)
@@ -90,7 +90,7 @@ Make a HTTP request with `curl`:
 ```curl
 curl -v \
   --request POST \
-  --url 'http://localhost:8888/run?type=microservice&type=php' \
+  --url 'http://localhost:8888/$?type=microservice&type=php' \
   --data '{
   "name": "Opwire",
   "url": "https://opwire.org/"
@@ -100,7 +100,7 @@ curl -v \
 Result:
 
 ```plain
-> POST /run?type=microservice&type=php HTTP/1.1
+> POST /$?type=microservice&type=php HTTP/1.1
 > User-Agent: curl/7.35.0
 > Host: localhost:8888
 > Accept: */*
@@ -156,14 +156,14 @@ Make a HTTP request with `curl`:
 ```curl
 curl -v \
   --request POST \
-  --url 'http://localhost:8888/run?type=microservice&type=php' \
+  --url 'http://localhost:8888/$?type=microservice&type=php' \
   --data 'Not a JSON object'
 ```
 
 Result:
 
 ```plain
-> POST /run?type=microservice&type=php HTTP/1.1
+> POST /$?type=microservice&type=php HTTP/1.1
 > User-Agent: curl/7.35.0
 > Host: localhost:8888
 > Accept: */*
@@ -188,7 +188,7 @@ Result:
 Execute the following command:
 
 ```shell
-./opwire-agent -p=8888 \
+./opwire-agent serve -p=8888 \
   --default-command="php example.php --input-format=json --output-format=text"
 ```
 
@@ -199,7 +199,7 @@ Make a HTTP request with `curl`:
 ```curl
 curl -v \
   --request POST \
-  --url 'http://localhost:8888/run?type=microservice&type=php' \
+  --url 'http://localhost:8888/$?type=microservice&type=php' \
   --data '{
   "name": "Opwire",
   "url": "https://opwire.org/"
@@ -209,7 +209,7 @@ curl -v \
 Result:
 
 ```plain
-> POST /run?type=microservice&type=php HTTP/1.1
+> POST /$?type=microservice&type=php HTTP/1.1
 > User-Agent: curl/7.35.0
 > Host: localhost:8888
 > Accept: */*
@@ -268,14 +268,14 @@ Make a HTTP request with `curl`:
 ```curl
 curl -v \
   --request POST \
-  --url 'http://localhost:8888/run?type=microservice&type=php' \
+  --url 'http://localhost:8888/$?type=microservice&type=php' \
   --data 'Not a JSON object'
 ```
 
 Result:
 
 ```plain
-> POST /run?type=microservice&type=php HTTP/1.1
+> POST /$?type=microservice&type=php HTTP/1.1
 > User-Agent: curl/7.35.0
 > Host: localhost:8888
 > Accept: */*
